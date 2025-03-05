@@ -9,13 +9,22 @@ public class Car extends Vehicle {
     private int currentGear;
 
     public Car(String name, int doors, int gears, boolean isManual, String type, int seats) {
-        super(name, 4); // A car has 4 wheels
+        super(name, 4); // Cars always have 4 wheels
         this.doors = doors;
         this.gears = gears;
         this.isManual = isManual;
         this.type = type;
         this.seats = seats;
         this.currentGear = 1;
+    }
+
+    public void changeGear(int newGear) {
+        this.currentGear = newGear;
+        System.out.println("Car changed to gear " + newGear);
+    }
+
+    public void changeSpeed(int speed, int direction) {
+        move(speed, direction);
     }
 
     public int getDoors() {
@@ -40,15 +49,5 @@ public class Car extends Vehicle {
 
     public int getCurrentGear() {
         return currentGear;
-    }
-
-    public void changeGear(int newGear) {
-        this.currentGear = newGear;
-        System.out.println("Car changed to gear " + newGear);
-    }
-
-    public void changeSpeed(int speed, int direction) {
-        move(speed, direction);
-        System.out.println("Speed changed to " + speed + " in direction " + direction);
     }
 }

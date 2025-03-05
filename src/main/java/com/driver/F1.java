@@ -2,13 +2,13 @@ package com.driver;
 
 public class F1 extends Car {
     public F1(String name, boolean isManual) {
-        super(name, 2, 6, isManual, "F1 Car", 1);
+        super(name, 2, 6, isManual, "F1 Car", 1); // Fixed constructor parameters
     }
 
     public void accelerate(int rate) {
         int newSpeed = getCurrentSpeed() + rate;
 
-        if (newSpeed == 0) {
+        if (newSpeed <= 0) {
             stop();
             changeGear(1);
         } else if (newSpeed <= 50) {
@@ -28,17 +28,5 @@ public class F1 extends Car {
         if (newSpeed > 0) {
             changeSpeed(newSpeed, getCurrentDirection());
         }
-    }
-
-    public int getCurrentSpeed() {
-        return 100; // Dummy value, replace with actual logic
-    }
-
-    public int getCurrentDirection() {
-        return 0; // Dummy value, replace with actual logic
-    }
-
-    public void stop() {
-        System.out.println("F1 Car stopped.");
     }
 }
