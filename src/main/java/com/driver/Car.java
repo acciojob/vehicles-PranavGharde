@@ -2,17 +2,35 @@ package com.driver;
 
 public class Car extends Vehicle {
     private int wheels;
+    private String type;
     private int doors;
-    private boolean isConvertible;
-    private String fuelType;
-    private int mileage;
+    private int gears;
+    private boolean isManual;
+    private int currentGear;
+    private int seats;
 
-    public Car(String name, int currentSpeed, int wheels, int doors, boolean isConvertible, String fuelType, int mileage) {
-        super(name, currentSpeed);
+    public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+        super(name);
         this.wheels = wheels;
         this.doors = doors;
-        this.isConvertible = isConvertible;
-        this.fuelType = fuelType;
-        this.mileage = mileage;
+        this.gears = gears;
+        this.isManual = isManual;
+        this.type = type;
+        this.seats = seats;
+        this.currentGear = 1;
+    }
+
+    public void changeGear(int newGear) {
+        if (newGear >= 1 && newGear <= gears) {
+            this.currentGear = newGear;
+            System.out.println("ChangeGear method called - The gear is changed to: " + currentGear);
+        } else {
+            System.out.println("Invalid gear: " + newGear);
+        }
+    }
+
+    public void changeSpeed(int newSpeed, int newDirection) {
+        move(newSpeed, newDirection);
+        System.out.println("ChangeSpeed method called - Speed: " + newSpeed + ", Direction: " + newDirection + " degrees");
     }
 }
