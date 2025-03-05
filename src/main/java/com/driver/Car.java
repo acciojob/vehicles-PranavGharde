@@ -10,27 +10,52 @@ public class Car extends Vehicle {
     private int seats;
 
     public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
-        super(name);
+        super(name); // Call the parent (Vehicle) constructor
         this.wheels = wheels;
         this.doors = doors;
         this.gears = gears;
         this.isManual = isManual;
         this.type = type;
         this.seats = seats;
-        this.currentGear = 1;
+        this.currentGear = 1; // Default gear is 1
     }
 
     public void changeGear(int newGear) {
-        if (newGear >= 1 && newGear <= gears) {
-            this.currentGear = newGear;
-            System.out.println("ChangeGear method called - The gear is changed to: " + currentGear);
-        } else {
-            System.out.println("Invalid gear: " + newGear);
-        }
+        this.currentGear = newGear; // Update gear
+        System.out.println("changeGear method called - The gear is changed to: " + currentGear);
     }
 
     public void changeSpeed(int newSpeed, int newDirection) {
-        move(newSpeed, newDirection);
-        System.out.println("ChangeSpeed method called - Speed: " + newSpeed + ", Direction: " + newDirection + " degrees");
+        move(newSpeed, newDirection); // Call move() from Vehicle class
+        System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
+    }
+
+    // Getter methods
+    public int getCurrentGear() {
+        return currentGear;
+    }
+
+    public boolean isManual() {
+        return isManual;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public int getGears() {
+        return gears;
+    }
+
+    public String getType() {
+        return type;
     }
 }
