@@ -2,37 +2,29 @@ package com.driver;
 
 public class Vehicle {
     private String name;
-    private int wheels;
     private int currentSpeed;
     private int currentDirection;
 
-    public Vehicle(String name, int wheels) {
+    public Vehicle(String name, int currentSpeed) {
         this.name = name;
-        this.wheels = wheels;
-        this.currentSpeed = 0;
-        this.currentDirection = 0;
+        this.currentSpeed = currentSpeed;
+        this.currentDirection = 0; // Default direction is 0
     }
 
     public void move(int speed, int direction) {
         this.currentSpeed = speed;
         this.currentDirection = direction;
-        System.out.println(name + " moving at speed " + speed + " in direction " + direction);
+        System.out.println(name + " is moving at speed " + speed + " in direction " + direction);
     }
 
-    public void changeSpeed(int speed, int direction) {
-        this.currentSpeed = speed;
+    public void steer(int direction) {
         this.currentDirection = direction;
-        System.out.println(name + " changed speed to " + speed + " in direction " + direction);
+        System.out.println(name + " changed direction to " + direction);
     }
 
     public void stop() {
         this.currentSpeed = 0;
         System.out.println(name + " has stopped.");
-    }
-
-    public void steer(int direction) {
-        this.currentDirection += direction;
-        System.out.println(name + " steering at " + direction + " degrees");
     }
 
     public int getCurrentSpeed() {

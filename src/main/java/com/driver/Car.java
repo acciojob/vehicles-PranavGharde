@@ -1,53 +1,18 @@
 package com.driver;
 
 public class Car extends Vehicle {
+    private int wheels;
     private int doors;
-    private int gears;
-    private boolean isManual;
-    private String type;
-    private int seats;
-    private int currentGear;
+    private boolean isConvertible;
+    private String fuelType;
+    private int mileage;
 
-    public Car(String name, int doors, int gears, boolean isManual, String type, int seats) {
-        super(name, 4); // Cars always have 4 wheels
+    public Car(String name, int currentSpeed, int wheels, int doors, boolean isConvertible, String fuelType, int mileage) {
+        super(name, currentSpeed);
+        this.wheels = wheels;
         this.doors = doors;
-        this.gears = gears;
-        this.isManual = isManual;
-        this.type = type;
-        this.seats = seats;
-        this.currentGear = 1;
-    }
-
-    public void changeGear(int newGear) {
-        this.currentGear = newGear;
-        System.out.println("Car changed to gear " + newGear);
-    }
-
-    public void changeSpeed(int speed, int direction) {
-        move(speed, direction);
-    }
-
-    public int getDoors() {
-        return doors;
-    }
-
-    public int getGears() {
-        return gears;
-    }
-
-    public boolean isManual() {
-        return isManual;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public int getCurrentGear() {
-        return currentGear;
+        this.isConvertible = isConvertible;
+        this.fuelType = fuelType;
+        this.mileage = mileage;
     }
 }
